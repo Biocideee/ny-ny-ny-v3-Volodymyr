@@ -13,7 +13,6 @@ db_config = {
     "database": "mydb"
 }
 
-# ───────────── Моделі ─────────────
 class UserBase(BaseModel):
     email: str
     password: str
@@ -79,7 +78,6 @@ def delete_user(user_id: int):
     conn.close()
     return {"message": "User deleted"}
 
-# ───────────── ENDPOINTS: Quiz ─────────────
 @app.get("/quizzes", response_model=List[Quiz])
 def get_quizzes():
     conn = mysql.connector.connect(**db_config)
